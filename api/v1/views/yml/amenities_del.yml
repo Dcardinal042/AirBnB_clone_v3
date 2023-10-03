@@ -1,14 +1,14 @@
-Deletes a state object
+Deletes a amenity object
 ---
 tags:
-    - States
+    - Amenity
 parameters:
-    - name: id
+    - name: amenity_id
       in: path
       type: string
       required: true
 responses:
   200:
-    description: State deleted
+    description: Amenity deleted
   404:
     description: Resource not found

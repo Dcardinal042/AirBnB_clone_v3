@@ -124,6 +124,51 @@ test_db_storage.py"
 #     def test_new(self):
 #         """test that new adds an object to the database"""
 
+    @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
+    def test_save(self):
+        """Test that save properly saves objects to file.json"""
+@unittest.skipIf(models.storage_t != "db", "not testing db storage")
+    def test_get(self):
+        """Test the get() method for DBStorage"""
+        # Create an object and save it
+        new_state = State(name="California")
+        models.storage.new(new_state)
+        models.storage.save()
+
+        # Get the object using get() and check if it's the same object
+        retrieved_state = models.storage.get(State, new_state.id)
+        self.assertIs(new_state, retrieved_state)
+
+    @unittest.skipIf(models.storage_t != "db", "not testing db storage")
+    def test_count(self):
+        """Test the count() method for DBStorage"""
+        # Create some objects of a specific class
+        new_state1 = State(name="California")
+        new_state2 = State(name="New York")
+        models.storage.new(new_state1)
+        models.storage.new(new_state2)
+        models.storage.save()
+
+        # Count the number of objects of that class
+        count_states = models.storage.count(State)
+        self.assertEqual(count_states, 2)
+
+
+# class TestFileStorage(unittest.TestCase):
+#     """Test the FileStorage class"""
+#     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
+#     def test_all_returns_dict(self):
+#         """Test that all returns a dictionaty"""
+#         self.assertIs(type(models.storage.all()), dict)
+
+#     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
+#     def test_all_no_class(self):
+#         """Test that all returns all rows when no class is passed"""
+
+#     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
+#     def test_new(self):
+#         """test that new adds an object to the database"""
+
 #     @unittest.skipIf(models.storage_t != 'db', "not testing db storage")
 #     def test_save(self):
 #         """Test that save properly saves objects to file.json"""

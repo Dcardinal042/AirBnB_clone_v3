@@ -1,15 +1,15 @@
-Creates a state object
+Creates a city object
 ---
 tags:
-    - States
+    - City
 parameters:
-    - name: id
+    - name: state_id
       in: path
       type: string
       required: true
 responses:
   201:
-    description: new state created
+    description: city created
   404:
     description: Resource not found
   400:

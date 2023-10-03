@@ -1,14 +1,14 @@
-Deletes a state object
+Deletes a user object
 ---
 tags:
-    - States
+    - User
 parameters:
-    - name: id
+    - name: user_id
       in: path
       type: string
       required: true
 responses:
   200:
-    description: State deleted
+    description: User deleted
   404:
     description: Resource not found

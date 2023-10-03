@@ -1,14 +1,13 @@
-Deletes a state object
----
+Retrieves a list of cities by state:
 tags:
-    - States
+    - City
 parameters:
-    - name: id
+    - name: state_id
       in: path
       type: string
       required: true
 responses:
   200:
-    description: State deleted
+    description: List of cities
   404:
     description: Resource not found
