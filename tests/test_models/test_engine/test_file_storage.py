@@ -136,7 +136,8 @@ class TestFileStorage(unittest.TestCase):
         with open("file.json", "r") as f:
             js = f.read()
         self.assertEqual(json.loads(string), json.loads(js))
-def test_get(self):
+
+    def test_get(self):
         """Test the get() method for DBStorage"""
         # Create an object and save it
         new_state = State(name="California")
